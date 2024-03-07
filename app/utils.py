@@ -3,7 +3,6 @@ import regex as re
 import fitz
 # import pke
 import pandas as pd
-import numpy as np                                                              
 from nltk.tokenize import sent_tokenize
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, pipeline
 from sentence_transformers import SentenceTransformer, util
@@ -96,27 +95,34 @@ def get_sentences(fname, skip_page=(0,)):
     return sent_lst
 
 
-def load_sdg_embeddings():
-    df_sdg["sentence"] = df_sdg["sentence"].str.replace(reg_str, " ", regex=True)
-    sdg_sentences = df_sdg["sentence"].tolist()
-    sdg_embeddings = model.encode(sdg_sentences, convert_to_tensor=True)
-    return sdg_embeddings
+# def load_sdg_embeddings():
+#     df_sdg["sentence"] = df_sdg["sentence"].str.replace(reg_str, " ", regex=True)
+#     sdg_sentences = df_sdg["sentence"].tolist()
+#     sdg_embeddings = model.encode(sdg_sentences, convert_to_tensor=True)
+#     return sdg_embeddings
 
 
-def calculate_cosine_scores(sdg_embeddings, sentences):
-    sentences = [re.sub(reg_str, " ", sentence) for sentence in sentences]
-    embedding2 = model.encode(sentences, convert_to_tensor=True)
-    cosine_scores = util.pytorch_cos_sim(sdg_embeddings, embedding2)
-    # make an array of the scores for each goal hence having cosine scores for each 17 goals
-    cosine_scores = cosine_scores.numpy()
+# def calculate_cosine_scores(sdg_embeddings, sentences):
+#     sentences = [re.sub(reg_str, " ", sentence) for sentence in sentences]
+#     embedding2 = model.encode(sentences, convert_to_tensor=True)
+#     cosine_scores = util.pytorch_cos_sim(sdg_embeddings, embedding2)
+#     # make an array of the scores for each goal hence having cosine scores for each 17 goals
+#     cosine_scores = cosine_scores.numpy()
 
-    return cosine_scores
+#     return cosine_scores
 
 
 def sentiment_analysis(sent_list):
     result = []
-    res = classifier(sent_list)
-    result.extend(res)
+    CNT = 100
+    LEN = len(sent_list)
+
+    for i in range(0, LEN, CNT):
+        off_e = (i + CNT) if (i + CNT) < LEN else LEN
+        # Max length of sentence: 512
+        res = classifier(sent_list[i:off_e], truncation=True)
+        result.extend(res)
+
     return result
 
 

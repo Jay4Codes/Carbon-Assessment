@@ -49,3 +49,6 @@ transformers>=4.13.0
 uritemplate>=4.1.1
 urllib3>=1.26.16
 wordcloud>=1.8.1
+comet_ml>=3.2.2
+leafmap>=0.31.5
+pydeck>=0.8.0
