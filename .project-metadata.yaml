@@ -5,12 +5,6 @@ specification_version: 1.0
 prototype_version: 1.0
 date: "2024-03-07"
 
-environment_variables:
-  RANDOM_VARIABLE_NAME:
-    default: "DEFAULT-VALUE"
-    description: "A description providing user clarifying information about the variable."
-    required: false
-
 runtimes:
   - editor: Workbench ## Other acceptable values are determined by the runtimes available in your CML environment
     kernel: Python 3.10 ## Same here, check your runtimes (custom runtimes can be added as well)
@@ -24,17 +18,16 @@ tasks:
     script: scripts/install_dependencies.py
     short_summary: Install Requirements and Dependencies
     kernel: python3
-    cpu: 1
-    memory: 2
+    cpu: 2
+    memory: 4
 
   ## JOB related AMP snippet
   - type: start_application
-    name: Streamlit App
-    entity_label: streamlit
+    short_summary: Starting Streamlit application
+    name: Climate and Carbon Cognizance
+    subdomain: streamlit
     script: scripts/launch_app.py
-    arguments: None
-    cpu: 1
-    memory: 4
-    short_summary: Start Streamlit application
     environment:
       TASK_TYPE: START_APPLICATION
+    cpu: 2
+    memory: 4
