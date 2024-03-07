@@ -1,7 +1,7 @@
 import streamlit as st
 import regex as re
 import fitz
-import pke
+# import pke
 import pandas as pd
 import numpy as np                                                              
 from nltk.tokenize import sent_tokenize
@@ -170,24 +170,24 @@ def carbon_assessment(hardware_type, hours_used, provider, region):
     )
 
 
-def extract_keywords(text):
-    pos = {"NOUN", "PROPN", "ADJ"}
-    extractor = pke.unsupervised.SingleRank()
-    # 2. load the content of the document.
-    extractor.load_document(input=text, language="en", normalization=None)
+# def extract_keywords(text):
+#     pos = {"NOUN", "PROPN", "ADJ"}
+#     extractor = pke.unsupervised.SingleRank()
+#     # 2. load the content of the document.
+#     extractor.load_document(input=text, language="en", normalization=None)
 
-    # 3. select the longest sequences of nouns and adjectives as candidates.
-    extractor.candidate_selection(pos=pos)
+#     # 3. select the longest sequences of nouns and adjectives as candidates.
+#     extractor.candidate_selection(pos=pos)
 
-    # 4. weight the candidates using the sum of their word's scores that are
-    #    computed using random walk. In the graph, nodes are words of
-    #    certain part-of-speech (nouns and adjectives) that are connected if
-    #    they occur in a window of 10 words.
-    extractor.candidate_weighting(window=10, pos=pos)
+#     # 4. weight the candidates using the sum of their word's scores that are
+#     #    computed using random walk. In the graph, nodes are words of
+#     #    certain part-of-speech (nouns and adjectives) that are connected if
+#     #    they occur in a window of 10 words.
+#     extractor.candidate_weighting(window=10, pos=pos)
 
-    # 5. get the 10-highest scored candidates as keyphrases
-    keyphrases = extractor.get_n_best(n=10)
-    # convert to list
-    keyphrases = [keyphrase[0] for keyphrase in keyphrases]
+#     # 5. get the 10-highest scored candidates as keyphrases
+#     keyphrases = extractor.get_n_best(n=10)
+#     # convert to list
+#     keyphrases = [keyphrase[0] for keyphrase in keyphrases]
 
-    return keyphrases
+#     return keyphrases

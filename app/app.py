@@ -11,7 +11,7 @@ from utils import (
     calculate_cosine_scores,
     sentiment_analysis,
     carbon_assessment,
-    extract_keywords,
+    # extract_keywords,
 )
 
 import plotly.express as px
@@ -187,24 +187,24 @@ elif selected == "Sustainability Goals":
                     "Prediction confidence",
                     (str(round(sorted_preds[0][1] * 100, 1)) + "%"),
                 )
-            keywords = extract_keywords(text)
-            keywords = [word for phrase in keywords for word in phrase.split()]
-            keywords = list(set(keywords))
-            st.write("Keywords extracted from the text: ", keywords)
+            # keywords = extract_keywords(text)
+            # keywords = [word for phrase in keywords for word in phrase.split()]
+            # keywords = list(set(keywords))
+            # st.write("Keywords extracted from the text: ", keywords)
 
-            wordcloud = WordCloud(
-                width=800,
-                height=800,
-                background_color="white",
-                stopwords=None,
-                min_font_size=10,
-            ).generate(" ".join(keywords))
-            plt.figure(figsize=(8, 8), facecolor=None)
-            plt.imshow(wordcloud)
-            plt.axis("off")
-            plt.tight_layout(pad=0)
-            plt.show()
-            st.pyplot(plt)
+            # wordcloud = WordCloud(
+            #     width=800,
+            #     height=800,
+            #     background_color="white",
+            #     stopwords=None,
+            #     min_font_size=10,
+            # ).generate(" ".join(keywords))
+            # plt.figure(figsize=(8, 8), facecolor=None)
+            # plt.imshow(wordcloud)
+            # plt.axis("off")
+            # plt.tight_layout(pad=0)
+            # plt.show()
+            # st.pyplot(plt)
 
             # cosine_scores = calculate_cosine_scores(sdg_embeddings, sent_list)
             # sentiment_scores = sentiment_analysis(sent_list)
