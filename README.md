@@ -1,5 +1,13 @@
 # Carbon-Assessment
 
+## Important Links
+<ul>
+<li>PPT - https://docs.google.com/presentation/d/1x9Op8drTd1VM_NNl6IeaNL1YZHMIPY3U177yCWXRg_Y/edit?usp=sharing
+<li>Demo Streamlit Cloud - https://carbon-assessment.streamlit.app/
+<li>Cloudera AMP - http://cdsw.44.226.59.107.nip.io/
+<li>Github - https://github.com/Jay4Codes/Carbon-Assessment.git
+</ul>
+
 ## Data Sources
 <ul>
 <li>https://zenodo.org/records/5550238#.Y93vry9ByF4
