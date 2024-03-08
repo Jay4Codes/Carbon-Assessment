@@ -1,4 +1,5 @@
-# Carbon-Assessment
+# Climate Cognizance
+In a world increasingly focused on sustainability, understanding the contents and sentiments within annual sustainability reports of organizations becomes imperative. This study proposes a novel approach leveraging natural language processing (NLP) techniques to analyze and distill key insights from these reports. By combining sentence similarity analysis and sentiment analysis, we aim to uncover thematic practices, trends, and the balance of positive and negative information across various companies' reports.
 
 ## Important Links
 <ul>
